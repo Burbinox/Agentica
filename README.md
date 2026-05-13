@@ -35,3 +35,24 @@ A help desk ticket viewer with AI-powered summaries.
 The API will be available at `http://localhost:8000`.  
 Swagger docs: `http://localhost:8000/docs`
 
+### Frontend
+
+1. Go to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+3. Run the dev server:
+   ```bash
+   pnpm dev
+   ```
+
+The app will be available at `http://localhost:5173`.
+
+> Make sure the backend is running before starting the frontend.
+
