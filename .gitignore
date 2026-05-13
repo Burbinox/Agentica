@@ -1,3 +1,5 @@
 assigment_FULLSTACK.pdf
 .env
 .claude/
+.venv/
+__pycache__/
