@@ -15,9 +15,11 @@ interface Props {
 export default function TicketDetail({ ticket, onBack }: Props) {
   const [summary, setSummary] = useState('')
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   async function generateSummary() {
     setSummary('')
+    setError(null)
     setLoading(true)
     const es = new EventSource(`/api/tickets/${ticket.id}/summary`)
     es.onmessage = (e) => {
@@ -31,6 +33,7 @@ export default function TicketDetail({ ticket, onBack }: Props) {
     es.onerror = () => {
       es.close()
       setLoading(false)
+      setError('Error during generating response. Please try again.')
     }
   }
 
@@ -60,6 +63,7 @@ export default function TicketDetail({ ticket, onBack }: Props) {
           {loading ? <><span className="spinner" />Generating...</> : 'Generate Summary'}
         </button>
 
+        {error && <p style={{ marginTop: '12px', color: '#f87171', fontSize: '14px' }}>{error}</p>}
         {summary && <div className="summary-box">{summary}</div>}
       </div>
     </div>
