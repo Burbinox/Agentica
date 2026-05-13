@@ -120,3 +120,9 @@ All core requirements are implemented but kept in their simplest working form. G
 
 I spent around 4 hours in total, including breaks for a dog walk, cooking and making tea, and watching a football match with one eye ;) - so I believe I stayed well within the 3-hour limit of actual work. Nothing caused me unexpected trouble, except for the LLM streaming which I am not fully satisfied with and would have spent more time on given the chance. The only minor setup friction was not having `psql` installed locally, but that I was able to resolve it quickly. Oh, and the dog walk took longer than expected ;).
 
+---
+
+# PS!!!
+
+After finishing the assignment I realized the app should spin up with a single command. A `docker-compose.yml` file would fit here perfectly and it could be also used in prod very well - that's the first thing I would add if I had more time.
+
