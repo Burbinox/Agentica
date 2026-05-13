@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
 from app.database import get_session
@@ -17,3 +17,14 @@ async def get_tickets(
         query = query.where(Ticket.status == status)
     result = await session.exec(query)
     return result.all()
+
+
+@router.get("/{ticket_id}")
+async def get_ticket(
+    ticket_id: int,
+    session: AsyncSession = Depends(get_session),
+):
+    ticket = await session.get(Ticket, ticket_id)
+    if not ticket:
+        raise HTTPException(status_code=404, detail="Ticket not found")
+    return ticket
