@@ -10,6 +10,7 @@ class TicketStatus(str, Enum):
 
 
 class Ticket(SQLModel, table=True):
+    __tablename__ = "tickets"
     id: int | None = Field(default=None, primary_key=True)
     title: str = Field(max_length=255)
     description: str
