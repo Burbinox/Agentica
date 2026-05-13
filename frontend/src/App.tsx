@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import TicketList from './components/TicketList'
+import TicketDetail from './components/TicketDetail'
 import type { Ticket } from './types'
 
 export default function App() {
@@ -8,11 +9,7 @@ export default function App() {
   return (
     <main>
       {selected ? (
-        <div>
-          <button onClick={() => setSelected(null)}>← Back</button>
-          <h2>{selected.title}</h2>
-          <p>{selected.description}</p>
-        </div>
+        <TicketDetail ticket={selected} onBack={() => setSelected(null)} />
       ) : (
         <TicketList onSelect={setSelected} />
       )}

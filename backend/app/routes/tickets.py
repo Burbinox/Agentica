@@ -46,7 +46,7 @@ async def get_ticket_summary(
 
     async def stream():
         response = await client.chat.completions.create(
-            model="default",
+            model="unsloth/Qwen3.5-9B",
             messages=[
                 {
                     "role": "user",

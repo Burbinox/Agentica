@@ -114,6 +114,22 @@ button.primary:hover {
   margin-bottom: 24px;
 }
 
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #555;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
 .summary-box {
   margin-top: 16px;
   padding: 16px;
